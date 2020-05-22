@@ -33,7 +33,7 @@ namespace Doze.Process
 
         private ProcessAccessor _processManager;
 
-        private SymbolParser _symbolParser;
+        //private SymbolParser _symbolParser;
 
         /// <summary>
         /// Provides the functionality to map a DLL from memory into a process
@@ -62,7 +62,7 @@ namespace Doze.Process
 
             _processManager = new ProcessAccessor(process);
 
-            _symbolParser = new SymbolParser(RetrieveNtdllFilePath(process), "RtlInsertInvertedFunctionTable", "RtlRemoveInvertedFunctionTable");
+            //_symbolParser = new SymbolParser(RetrieveNtdllFilePath(process), "RtlInsertInvertedFunctionTable", "RtlRemoveInvertedFunctionTable");
         }
 
         /// <summary>
@@ -82,7 +82,7 @@ namespace Doze.Process
                 throw new ArgumentException("The DLL file path provided was invalid");
             }
 
-            EnterDebugMode();
+            //EnterDebugMode();
 
             var dllBytes = File.ReadAllBytes(dllFilePath);
 
@@ -94,7 +94,7 @@ namespace Doze.Process
 
             _processManager = new ProcessAccessor(process);
 
-            _symbolParser = new SymbolParser(RetrieveNtdllFilePath(process), "RtlInsertInvertedFunctionTable", "RtlRemoveInvertedFunctionTable");
+            //_symbolParser = new SymbolParser(RetrieveNtdllFilePath(process), "RtlInsertInvertedFunctionTable", "RtlRemoveInvertedFunctionTable");
         }
 
         /// <summary>
@@ -220,12 +220,12 @@ namespace Doze.Process
         {
             // Insert the exception handlers for the DLL into the LdrpInvertedFunctionTable
 
-            var routineAddress = _processManager.Modules.First(module => module.Name.Equals("ntdll.dll", StringComparison.OrdinalIgnoreCase)).BaseAddress + _symbolParser.SymbolOffsets["RtlInsertInvertedFunctionTable"];
-
-            if (!_processManager.CallRoutine<bool>(CallingConvention.FastCall, routineAddress, DllBaseAddress.ToInt64(), _peImage.PeHeaders.PEHeader.SizeOfImage))
-            {
-                throw ExceptionBuilder.BuildRemoteRoutineCallException("RtlInsertInvertedFunctionTable");
-            }
+            //var routineAddress = _processManager.Modules.First(module => module.Name.Equals("ntdll.dll", StringComparison.OrdinalIgnoreCase)).BaseAddress + _symbolParser.SymbolOffsets["RtlInsertInvertedFunctionTable"];
+            //
+            //if (!_processManager.CallRoutine<bool>(CallingConvention.FastCall, routineAddress, DllBaseAddress.ToInt64(), _peImage.PeHeaders.PEHeader.SizeOfImage))
+            //{
+            //    throw ExceptionBuilder.BuildRemoteRoutineCallException("RtlInsertInvertedFunctionTable");
+            //}
         }
 
         private void LoadDependencies()
@@ -384,12 +384,12 @@ namespace Doze.Process
         {
             // Remove the exception handlers for the DLL from the LdrpInvertedFunctionTable
 
-            var routineAddress = _processManager.Modules.First(module => module.Name.Equals("ntdll.dll", StringComparison.OrdinalIgnoreCase)).BaseAddress + _symbolParser.SymbolOffsets["RtlRemoveInvertedFunctionTable"];
-
-            if (!_processManager.CallRoutine<bool>(CallingConvention.FastCall, routineAddress, DllBaseAddress.ToInt64()))
-            {
-                throw ExceptionBuilder.BuildRemoteRoutineCallException("RtlRemoveInvertedFunctionTable");
-            }
+            //var routineAddress = _processManager.Modules.First(module => module.Name.Equals("ntdll.dll", StringComparison.OrdinalIgnoreCase)).BaseAddress + _symbolParser.SymbolOffsets["RtlRemoveInvertedFunctionTable"];
+            //
+            //if (!_processManager.CallRoutine<bool>(CallingConvention.FastCall, routineAddress, DllBaseAddress.ToInt64()))
+            //{
+            //    throw ExceptionBuilder.BuildRemoteRoutineCallException("RtlRemoveInvertedFunctionTable");
+            //}
         }
 
         private void UnloadDependencies()

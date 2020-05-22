@@ -81,7 +81,10 @@ namespace Doze.Process
 
             var functionModule = Modules.First(module => module.Name.Equals(moduleName, StringComparison.OrdinalIgnoreCase));
 
-            var exportedFunction = functionModule.PeImage.Value.ExportDirectory.Value.ExportedFunctions.First(function => function.Name.Equals(functionName, StringComparison.OrdinalIgnoreCase));
+            var exportedFunction = functionModule.PeImage.Value.ExportDirectory.Value.ExportedFunctions.FirstOrDefault(function => function.Name.Equals(functionName, StringComparison.OrdinalIgnoreCase));
+
+            if (exportedFunction == null)
+                return IntPtr.Zero;
 
             return GetFunctionAddress(functionModule, exportedFunction);
         }
