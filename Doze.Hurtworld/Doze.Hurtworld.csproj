@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EF54F891-5321-4B75-A55C-5BEC8F13FA75}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Doze.Hurtworld</RootNamespace>
+    <AssemblyName>Doze.Hurtworld</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AmplifyOcclusion">
+      <HintPath>F:\Programs\SteamApp\steamapps\common\Hurtworld\experimental\HurtworldClient_Data\Managed\AmplifyOcclusion.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-CSharp-firstpass">
+      <HintPath>F:\Programs\SteamApp\steamapps\common\Hurtworld\experimental\HurtworldClient_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-CSharp1">
+      <HintPath>F:\Programs\SteamApp\steamapps\common\Hurtworld\experimental\HurtworldClient_Data\Managed\Assembly-CSharp1.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-UnityScript-firstpass">
+      <HintPath>F:\Programs\SteamApp\steamapps\common\Hurtworld\experimental\HurtworldClient_Data\Managed\Assembly-UnityScript-firstpass.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween">
+      <HintPath>F:\Programs\SteamApp\steamapps\common\Hurtworld\experimental\HurtworldClient_Data\Managed\DOTween.dll</HintPath>
+    </Reference>
+    <Reference Include="EasyAntiCheat.Client">
+      <HintPath>F:\Programs\SteamApp\steamapps\common\Hurtworld\experimental\HurtworldClient_Data\Managed\EasyAntiCheat.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="EasyAntiCheat.Server">
+      <HintPath>F:\Programs\SteamApp\steamapps\common\Hurtworld\experimental\HurtworldClient_Data\Managed\EasyAntiCheat.Server.dll</HintPath>
+    </Reference>
+    <Reference Include="I18N">
+      <HintPath>F:\Programs\SteamApp\steamapps\common\Hurtworld\experimental\HurtworldClient_Data\Managed\I18N.dll</HintPath>
+    </Reference>
+    <Reference Include="I18N.West">
+      <HintPath>F:\Programs\SteamApp\steamapps\common\Hurtworld\experimental\HurtworldClient_Data\Managed\I18N.West.dll</HintPath>
+    </Reference>
+    <Reference Include="Ionic.ZLib">
+      <HintPath>F:\Programs\SteamApp\steamapps\common\Hurtworld\experimental\HurtworldClient_Data\Managed\Ionic.ZLib.dll</HintPath>
+    </Reference>
+    <Reference Include="MonitorComponents">
+      <HintPath>F:\Programs\SteamApp\steamapps\common\Hurtworld\experimental\HurtworldClient_Data\Managed\MonitorComponents.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Posix">
+      <HintPath>F:\Programs\SteamApp\steamapps\common\Hurtworld\experimental\HurtworldClient_Data\Managed\Mono.Posix.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Security">
+      <HintPath>F:\Programs\SteamApp\steamapps\common\Hurtworld\experimental\HurtworldClient_Data\Managed\Mono.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="NSpeex">
+      <HintPath>F:\Programs\SteamApp\steamapps\common\Hurtworld\experimental\HurtworldClient_Data\Managed\NSpeex.dll</HintPath>
+    </Reference>
+    <Reference Include="Rewired_Core">
+      <HintPath>F:\Programs\SteamApp\steamapps\common\Hurtworld\experimental\HurtworldClient_Data\Managed\Rewired_Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Rewired_Windows_Lib">
+      <HintPath>F:\Programs\SteamApp\steamapps\common\Hurtworld\experimental\HurtworldClient_Data\Managed\Rewired_Windows_Lib.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="uLink">
+      <HintPath>F:\Programs\SteamApp\steamapps\common\Hurtworld\experimental\HurtworldClient_Data\Managed\uLink.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>F:\Programs\SteamApp\steamapps\common\Hurtworld\experimental\HurtworldClient_Data\Managed\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CrashLog">
+      <HintPath>F:\Programs\SteamApp\steamapps\common\Hurtworld\experimental\HurtworldClient_Data\Managed\UnityEngine.CrashLog.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Networking">
+      <HintPath>F:\Programs\SteamApp\steamapps\common\Hurtworld\experimental\HurtworldClient_Data\Managed\UnityEngine.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>F:\Programs\SteamApp\steamapps\common\Hurtworld\experimental\HurtworldClient_Data\Managed\UnityEngine.UI.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AnticheatJirniyPlugin.cs" />
+    <Compile Include="Loader.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
