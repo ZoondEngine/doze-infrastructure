@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Doze.Nt.Client", "Doze.Nt.C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Doze.Hurtworld", "Doze.Hurtworld\Doze.Hurtworld.csproj", "{EF54F891-5321-4B75-A55C-5BEC8F13FA75}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Doze.Tests", "Doze.Tests\Doze.Tests.csproj", "{1A1B219D-0112-435B-8500-0CBB85B90C51}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -83,6 +85,18 @@ Global
 		{EF54F891-5321-4B75-A55C-5BEC8F13FA75}.Release|x64.Build.0 = Release|Any CPU
 		{EF54F891-5321-4B75-A55C-5BEC8F13FA75}.Release|x86.ActiveCfg = Release|Any CPU
 		{EF54F891-5321-4B75-A55C-5BEC8F13FA75}.Release|x86.Build.0 = Release|Any CPU
+		{1A1B219D-0112-435B-8500-0CBB85B90C51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A1B219D-0112-435B-8500-0CBB85B90C51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A1B219D-0112-435B-8500-0CBB85B90C51}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{1A1B219D-0112-435B-8500-0CBB85B90C51}.Debug|x64.Build.0 = Debug|Any CPU
+		{1A1B219D-0112-435B-8500-0CBB85B90C51}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{1A1B219D-0112-435B-8500-0CBB85B90C51}.Debug|x86.Build.0 = Debug|Any CPU
+		{1A1B219D-0112-435B-8500-0CBB85B90C51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A1B219D-0112-435B-8500-0CBB85B90C51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A1B219D-0112-435B-8500-0CBB85B90C51}.Release|x64.ActiveCfg = Release|Any CPU
+		{1A1B219D-0112-435B-8500-0CBB85B90C51}.Release|x64.Build.0 = Release|Any CPU
+		{1A1B219D-0112-435B-8500-0CBB85B90C51}.Release|x86.ActiveCfg = Release|Any CPU
+		{1A1B219D-0112-435B-8500-0CBB85B90C51}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
