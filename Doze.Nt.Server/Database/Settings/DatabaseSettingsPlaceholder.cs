@@ -23,6 +23,7 @@ namespace Doze.Nt.Server.Database.Settings
             ini_file["connection"]["password"] = "123";
             ini_file["connection"]["database"] = "doze_debug";
             ini_file["statistics"]["enable"] = true;
+            ini_file["statistics"]["update_interval"] = 2;
             ini_file["statistics"]["max_tables_limiter"] = 50;
             ini_file["statistics"]["max_queries_limiter"] = 100;
             ini_file["statistics"]["max_accesses_limiter"] = 10;

@@ -85,7 +85,7 @@
             this.AccessesCountLabel.AutoSize = true;
             this.AccessesCountLabel.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AccessesCountLabel.ForeColor = System.Drawing.Color.Gray;
-            this.AccessesCountLabel.Location = new System.Drawing.Point(719, 248);
+            this.AccessesCountLabel.Location = new System.Drawing.Point(705, 248);
             this.AccessesCountLabel.Name = "AccessesCountLabel";
             this.AccessesCountLabel.Size = new System.Drawing.Size(29, 16);
             this.AccessesCountLabel.TabIndex = 32;
@@ -106,7 +106,7 @@
             // 
             this.AccessesProgress.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.AccessesProgress.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
-            this.AccessesProgress.Location = new System.Drawing.Point(161, 253);
+            this.AccessesProgress.Location = new System.Drawing.Point(147, 253);
             this.AccessesProgress.Name = "AccessesProgress";
             this.AccessesProgress.ProgressColor2 = System.Drawing.Color.IndianRed;
             this.AccessesProgress.ShadowDecoration.Parent = this.AccessesProgress;
@@ -120,7 +120,7 @@
             this.QueriesCountLabel.AutoSize = true;
             this.QueriesCountLabel.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.QueriesCountLabel.ForeColor = System.Drawing.Color.Gray;
-            this.QueriesCountLabel.Location = new System.Drawing.Point(719, 216);
+            this.QueriesCountLabel.Location = new System.Drawing.Point(705, 216);
             this.QueriesCountLabel.Name = "QueriesCountLabel";
             this.QueriesCountLabel.Size = new System.Drawing.Size(15, 16);
             this.QueriesCountLabel.TabIndex = 29;
@@ -141,7 +141,7 @@
             // 
             this.QueriesProgress.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.QueriesProgress.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
-            this.QueriesProgress.Location = new System.Drawing.Point(161, 221);
+            this.QueriesProgress.Location = new System.Drawing.Point(147, 221);
             this.QueriesProgress.Name = "QueriesProgress";
             this.QueriesProgress.ProgressColor2 = System.Drawing.Color.IndianRed;
             this.QueriesProgress.ShadowDecoration.Parent = this.QueriesProgress;
@@ -155,7 +155,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.Gray;
-            this.label8.Location = new System.Drawing.Point(719, 168);
+            this.label8.Location = new System.Drawing.Point(705, 168);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(29, 16);
             this.label8.TabIndex = 26;
@@ -166,7 +166,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label7.Location = new System.Drawing.Point(719, 105);
+            this.label7.Location = new System.Drawing.Point(705, 105);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(36, 16);
             this.label7.TabIndex = 25;
@@ -187,7 +187,7 @@
             // 
             this.guna2ProgressBar2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.guna2ProgressBar2.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
-            this.guna2ProgressBar2.Location = new System.Drawing.Point(161, 173);
+            this.guna2ProgressBar2.Location = new System.Drawing.Point(147, 173);
             this.guna2ProgressBar2.Name = "guna2ProgressBar2";
             this.guna2ProgressBar2.ProgressColor2 = System.Drawing.Color.IndianRed;
             this.guna2ProgressBar2.ShadowDecoration.Parent = this.guna2ProgressBar2;
@@ -211,7 +211,7 @@
             // 
             this.guna2ProgressBar1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.guna2ProgressBar1.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
-            this.guna2ProgressBar1.Location = new System.Drawing.Point(161, 110);
+            this.guna2ProgressBar1.Location = new System.Drawing.Point(147, 110);
             this.guna2ProgressBar1.Name = "guna2ProgressBar1";
             this.guna2ProgressBar1.ProgressColor2 = System.Drawing.Color.IndianRed;
             this.guna2ProgressBar1.ShadowDecoration.Parent = this.guna2ProgressBar1;
@@ -328,7 +328,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Gray;
-            this.label1.Location = new System.Drawing.Point(720, 136);
+            this.label1.Location = new System.Drawing.Point(706, 136);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(29, 16);
             this.label1.TabIndex = 63;
@@ -349,7 +349,7 @@
             // 
             this.guna2ProgressBar5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.guna2ProgressBar5.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
-            this.guna2ProgressBar5.Location = new System.Drawing.Point(162, 141);
+            this.guna2ProgressBar5.Location = new System.Drawing.Point(148, 141);
             this.guna2ProgressBar5.Name = "guna2ProgressBar5";
             this.guna2ProgressBar5.ProgressColor2 = System.Drawing.Color.IndianRed;
             this.guna2ProgressBar5.ShadowDecoration.Parent = this.guna2ProgressBar5;

@@ -48,29 +48,33 @@ namespace Doze.Nt.Server.Database.Components
                 if (Settings.Read<bool>("enable", "statistics") == false)
                     return;
 
-                if (UpdatableControls.Count == 0)
-                    return;
+                var update_interval = Settings.Read<int>("update_interval", "statistics");
+                if ((CurrentTickTime - PreviousTickTime).Seconds > update_interval)
+                {
+                    if (UpdatableControls.Count == 0)
+                        return;
 
-                var windowsObject = FindObjectOfType<WindowsObject>();
-                if(windowsObject != null)
-                {
-                    windowsObject.ExecuteCode<DatabaseStatusContent>("control-general:database_status", (databaseContent) =>
+                    var windowsObject = FindObjectOfType<WindowsObject>();
+                    if (windowsObject != null)
                     {
-                        var fields = databaseContent.GetType().GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
-                        foreach(var field in fields)
+                        windowsObject.ExecuteCode<DatabaseStatusContent>("control-general:database_status", (databaseContent) =>
                         {
-                            var existedUpdatableControl = UpdatableControls.FirstOrDefault((x) => x.ControlName.ToLower() == field.Name.ToLower());
-                            if (existedUpdatableControl != null)
+                            var fields = databaseContent.GetType().GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
+                            foreach (var field in fields)
                             {
-                                existedUpdatableControl.SetControl((Control)field.GetValue(databaseContent));
-                                existedUpdatableControl.Call();
+                                var existedUpdatableControl = UpdatableControls.FirstOrDefault((x) => x.ControlName.ToLower() == field.Name.ToLower());
+                                if (existedUpdatableControl != null)
+                                {
+                                    existedUpdatableControl.SetControl((Control)field.GetValue(databaseContent));
+                                    existedUpdatableControl.Call();
+                                }
                             }
-                        }
-                    });
-                }
-                else
-                {
-                    Parent.GetLog().WriteLine($"Can't update visual state because windows object not found for getting cached window!", Log.LogLevel.Error);
+                        });
+                    }
+                    else
+                    {
+                        Parent.GetLog().WriteLine($"Can't update visual state because windows object not found for getting cached window!", Log.LogLevel.Error);
+                    }
                 }
             }
         }

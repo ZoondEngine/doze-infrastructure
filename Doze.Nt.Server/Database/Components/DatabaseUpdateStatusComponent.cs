@@ -1,8 +1,7 @@
 ﻿using Doze.Components;
-using Doze.Nt.Server.Visual.Controls;
-using Doze.Nt.Windows;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using System.Collections.Concurrent;
 using System.Data.Common;
 using System.Linq;
 
@@ -14,8 +13,12 @@ namespace Doze.Nt.Server.Database.Components
         private DatabaseContext Context { get; set; }
         private DatabaseFacade Database { get; set; }
         private DbConnection Connection { get; set; }
+        private DatabaseVisualUpdaterComponent Updater { get; set; }
 
         private bool IsValid { get; set; }
+        private bool IsInitializedControls { get; set; }
+
+        private ConcurrentDictionary<string, string> ControlsDataPairs { get; set; }
 
         public override void Awake()
         {
@@ -31,74 +34,88 @@ namespace Doze.Nt.Server.Database.Components
                     if (Database != null)
                     {
                         Connection = Database.GetDbConnection();
-                        IsValid = true;
+
+                        Updater = Parent.GetComponent<DatabaseVisualUpdaterComponent>();
+
+                        ControlsDataPairs = new ConcurrentDictionary<string, string>()
+                        {
+                            ["ProviderInfoLabel"] = "",
+                            ["ContextInfoLabel"] = "",
+                            ["DatabaseInfoLabel"] = "",
+                            ["VersionInfoLabel"] = "",
+                        };
+
+                        IsInitializedControls = false;
+                        IsValid = Updater != null;
                     }
+                }
+            }
+        }
+
+        public void AddUpdatableControls()
+        {
+            if(IsValid)
+            {
+                if (!IsInitializedControls)
+                {
+                    Updater.AddUpdatabableControl(new UpdatableControl("ProviderInfoLabel", (control) =>
+                    {
+                        control.Text = ControlsDataPairs["ProviderInfoLabel"];
+                    }));
+                    Updater.AddUpdatabableControl(new UpdatableControl("ContextInfoLabel", (control) =>
+                    {
+                        control.Text = ControlsDataPairs["ContextInfoLabel"];
+                    }));
+                    Updater.AddUpdatabableControl(new UpdatableControl("DatabaseInfoLabel", (control) =>
+                    {
+                        control.Text = ControlsDataPairs["DatabaseInfoLabel"];
+                    }));
+                    Updater.AddUpdatabableControl(new UpdatableControl("VersionInfoLabel", (control) =>
+                    {
+                        control.Text = ControlsDataPairs["VersionInfoLabel"];
+                    }));
+
+                    IsInitializedControls = true;
                 }
             }
         }
 
         public override void Update()
         {
-            if ((CurrentTickTime - PreviousTickTime).Seconds > 2)
-            {
-                string provider = "Provider: ";
-                string context = "Context: ";
-                string database = "Database: ";
-                string version = "";
+            AddUpdatableControls();
 
-                if (IsValid)
+            string provider = "Provider: ";
+            string context = "Context: ";
+            string database = "Database: ";
+            string version = "";
+
+            if (IsValid)
+            {
+                try
                 {
-                    try
-                    {
-                        provider += Database.ProviderName.Split('.').Last();
-                        database += Connection.Database;
-                        context += Context.ContextId;
-                        version += Connection.ServerVersion + $" ({Connection.State.ToString().ToLower()})";
-                    }
-                    catch
-                    {
-                        IsValid = false;
-                        version = "Version: unknown (disbounded)";
-                    }
+                    provider += Database.ProviderName.Split('.').Last();
+                    database += Connection.Database;
+                    context += Context.ContextId;
+                    version += Connection.ServerVersion + $" ({Connection.State.ToString().ToLower()})";
                 }
-                else
+                catch
                 {
-                    provider += "not valid";
-                    database += "not found (ctx: -1)";
-                    context += "damaged";
+                    IsValid = false;
                     version = "Version: unknown (disbounded)";
                 }
-
-                var visualObject = FindObjectOfType<WindowsObject>();
-                visualObject.ExecuteCode<DatabaseStatusContent>("control-general:database_status", (database_content) =>
-                {
-                    database_content.ProviderInfoLabel.Text = provider;
-                    database_content.ContextInfoLabel.Text = context;
-                    database_content.DatabaseInfoLabel.Text = database;
-                    database_content.VersionInfoLabel.Text = version;
-                });
-
-                AssumeHealth();
-            }
-        }
-
-        private void AssumeHealth()
-        {
-            string health = "Health: ";
-            if(!IsValid)
-            {
-                health += "0%";
             }
             else
             {
-                health += "100%";
+                provider += "not valid";
+                database += "not found (ctx: -1)";
+                context += "damaged";
+                version = "Version: unknown (disbounded)";
             }
 
-            var visualObject = FindObjectOfType<WindowsObject>();
-            visualObject.ExecuteCode<DatabaseStatusContent>("control-general:database_status", (database_content) =>
-            {
-                //database_content.SyncContextsInfoLabel.Text = health;
-            });
+            ControlsDataPairs["ProviderInfoLabel"] = provider;
+            ControlsDataPairs["ContextInfoLabel"] = context;
+            ControlsDataPairs["DatabaseInfoLabel"] = database;
+            ControlsDataPairs["VersionInfoLabel"] = version;
         }
 
         public override void BeforeDestroy()
