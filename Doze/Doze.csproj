@@ -43,7 +43,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ConsoleTables, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ConsoleTables.2.3.0\lib\net40\ConsoleTables.dll</HintPath>
+      <HintPath>..\packages\ConsoleTables.2.4.1\lib\net40\ConsoleTables.dll</HintPath>
     </Reference>
     <Reference Include="InTheHand, Version=10.2018.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\InTheHand.Pontoon.10.2018.3.19\lib\net452\InTheHand.dll</HintPath>
@@ -137,6 +137,12 @@
     <Compile Include="Ini\Element.cs" />
     <Compile Include="Ini\File.cs" />
     <Compile Include="Ini\Section.cs" />
+    <Compile Include="Journal\Components\JournalCacheSaverComponent.cs" />
+    <Compile Include="Journal\Configuration\JournalConfigurationBuilder.cs" />
+    <Compile Include="Journal\Configuration\JournalConfigurationContainer.cs" />
+    <Compile Include="Journal\Contracts\IJournalProvider.cs" />
+    <Compile Include="Journal\JournalObject.cs" />
+    <Compile Include="Journal\Providers\TxtJournalProvider.cs" />
     <Compile Include="Nt\Windows\Components\WindowStateComponent.cs" />
     <Compile Include="Nt\Windows\Interface\IManagedWindow.cs" />
     <Compile Include="Nt\Windows\WindowsObject.cs" />

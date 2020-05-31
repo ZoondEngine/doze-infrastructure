@@ -51,6 +51,7 @@ namespace Doze.Nt.Client.Network
             => await Task.Run(() => Service.SendAndWait(data));
         public async Task<T> SendAsync<T>(BaseNetworkable data, Packets awaitablePacketId) where T : BaseNetworkable
             => await Task.Run(() => Service.SendAsync<T>(data, (int)awaitablePacketId));
+        // TODO: made that => await Task.Run(() => Service.SendAsync<T>(data, data.Identifier));
 
         public void Send(BaseNetworkable data)
             => Service.Send(data);

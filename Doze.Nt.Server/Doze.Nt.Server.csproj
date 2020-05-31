@@ -198,6 +198,7 @@
     <Compile Include="Terminal\Implemented\ClearTermialCommand.cs" />
     <Compile Include="Terminal\Implemented\HelpTermialCommand.cs" />
     <Compile Include="Terminal\Interface\ITerminalCommand.cs" />
+    <Compile Include="Terminal\JournalComponent\TerminalJournalProvider.cs" />
     <Compile Include="Terminal\TerminalObject.cs" />
     <Compile Include="Terminal\TerminalResult.cs" />
     <Compile Include="Visual\Controls\Network\ServerSettingsInformationWindow.cs">
