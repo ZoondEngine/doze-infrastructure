@@ -195,6 +195,9 @@
     <Compile Include="Network\Processors\AuthenticateProcessor.cs" />
     <Compile Include="Network\Processors\SpliceProcessor.cs" />
     <Compile Include="Network\Settings\NetworkSettingsPlaceholder.cs" />
+    <Compile Include="Plugins\Contracts\IDozePluginInterface.cs" />
+    <Compile Include="Plugins\DozeServerPlugin.cs" />
+    <Compile Include="Plugins\PluginObject.cs" />
     <Compile Include="Terminal\Implemented\ClearTermialCommand.cs" />
     <Compile Include="Terminal\Implemented\HelpTermialCommand.cs" />
     <Compile Include="Terminal\Interface\ITerminalCommand.cs" />
@@ -287,6 +290,9 @@
       <Name>Doze</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Plugins\Components\" />
+    <Folder Include="Plugins\Mechanic\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -147,6 +147,10 @@
     <Compile Include="Nt\Windows\Interface\IManagedWindow.cs" />
     <Compile Include="Nt\Windows\WindowsObject.cs" />
     <Compile Include="Nt\Windows\WindowWrapper.cs" />
+    <Compile Include="Plugins\Contracts\IDozePlugin.cs" />
+    <Compile Include="Plugins\DozePlugin.cs" />
+    <Compile Include="Plugins\PluginLoader.cs" />
+    <Compile Include="Plugins\PluginsObject.cs" />
     <Compile Include="Private\CryptObject.cs" />
     <Compile Include="Process\Exceptions\Builder.cs" />
     <Compile Include="Process\Invoker\Assembler.cs" />
@@ -210,6 +214,8 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Plugins\Components\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
