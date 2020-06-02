@@ -7,7 +7,7 @@ namespace Doze
 {
     public class DozeObject
     {
-        private List<DozeComponent> ObjectComponents = new List<DozeComponent>();
+        private readonly List<DozeComponent> ObjectComponents = new List<DozeComponent>();
 
         private string Tag { get; set; }
 

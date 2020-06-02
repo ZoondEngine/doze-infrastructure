@@ -101,15 +101,15 @@ namespace Doze.Nt.Server.Database.Components
                 catch
                 {
                     IsValid = false;
-                    version = "Version: unknown (disbounded)";
+                    version = "Version: unknown (closed)";
                 }
             }
             else
             {
-                provider += "not valid";
-                database += "not found (ctx: -1)";
-                context += "damaged";
-                version = "Version: unknown (disbounded)";
+                provider += "not founded";
+                database += "invalid (ctx: -1)";
+                context += "not opened";
+                version = "Version: unknown (closed)";
             }
 
             ControlsDataPairs["ProviderInfoLabel"] = provider;

@@ -1,7 +1,6 @@
 ﻿using Doze.Nt.Server.Database.Accessors;
 using Doze.Nt.Server.Database.Models;
 using Doze.Nt.Server.Database.Settings;
-using Doze.Nt.Server.External.Settings;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;

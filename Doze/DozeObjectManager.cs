@@ -9,7 +9,7 @@ namespace Doze
     public static class DozeObjectManager
     {
         private static List<DozeObject> GlobalObjectsList { get; set; } = new List<DozeObject>();
-        private static Thread GlobalListTickIteration { get; set; } = new Thread(Iteration, 32 * 1024 * 1024);
+        private static Thread GlobalListTickIteration { get; set; } = new Thread(Iteration, 64 * 1024 * 1024);
         private static TimeSpan OldTickTime { get; set; }
 
         public static void Instantiate()
@@ -35,7 +35,7 @@ namespace Doze
             lock (GlobalObjectsList)
             {
                 Thread.Sleep(100);
-                Thread.EndCriticalRegion();
+                Thread.BeginCriticalRegion();
 
                 var currentTickTime = TimeSpan.FromTicks(DateTime.Now.Ticks);
                 if (OldTickTime == null)
