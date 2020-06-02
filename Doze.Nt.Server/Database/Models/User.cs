@@ -20,6 +20,12 @@ namespace Doze.Nt.Server.Database.Models
         [Column("password")]
         public string PasswordHash { get; set; }
 
+        [Column("hardware_id")]
+        public string HardwareId { get; set; }
+
+        [Column("balance")]
+        public int Balance { get; set; }
+
         [Column("created_at")]
         public DateTime CreatedAt { get; set; }
 

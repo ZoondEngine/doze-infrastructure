@@ -46,9 +46,6 @@
     <Reference Include="Guna.UI2">
       <HintPath>..\..\..\..\Downloads\Guna.UI2.dll</HintPath>
     </Reference>
-    <Reference Include="Jareem.Network">
-      <HintPath>F:\Transfer\Soft\holzed_old\holzed_old\JareemSys\Jareem.Network\bin\Release\netstandard2.0\Jareem.Network.dll</HintPath>
-    </Reference>
     <Reference Include="Jareem.Support">
       <HintPath>F:\Transfer\Soft\holzed_old\holzed_old\JareemSys\Jareem.Network\bin\Release\netstandard2.0\Jareem.Support.dll</HintPath>
     </Reference>
@@ -173,7 +170,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationContext.cs" />
+    <Compile Include="Database\Accessors\ProductAccessor.cs" />
     <Compile Include="Database\Accessors\UserAccessor.cs" />
+    <Compile Include="Database\Accessors\UserSubscriptionsAccessor.cs" />
     <Compile Include="Database\BaseAccessor.cs" />
     <Compile Include="Database\Components\DatabaseContextsCacheComponent.cs" />
     <Compile Include="Database\Components\DatabaseUpdateStatusComponent.cs" />
@@ -182,7 +181,9 @@
     <Compile Include="Database\DatabaseObject.cs" />
     <Compile Include="Database\BaseModel.cs" />
     <Compile Include="Database\IDatabaseAccessor.cs" />
+    <Compile Include="Database\Models\Product.cs" />
     <Compile Include="Database\Models\User.cs" />
+    <Compile Include="Database\Models\UserSubscription.cs" />
     <Compile Include="Database\Settings\DatabaseSettingsPlaceholder.cs" />
     <Compile Include="External\Settings\ExternalSettingsObject.cs" />
     <Compile Include="External\Settings\ISettingsObjectPlaceholder.cs" />
@@ -193,6 +194,7 @@
     <Compile Include="Network\Components\ProcessorsInitializerComponent.cs" />
     <Compile Include="Network\NetworkObject.cs" />
     <Compile Include="Network\Processors\AuthenticateProcessor.cs" />
+    <Compile Include="Network\Processors\GetSubscriptionsProcessor.cs" />
     <Compile Include="Network\Processors\SpliceProcessor.cs" />
     <Compile Include="Network\Settings\NetworkSettingsPlaceholder.cs" />
     <Compile Include="Plugins\Contracts\IDozePluginInterface.cs" />
@@ -288,6 +290,10 @@
     <ProjectReference Include="..\Doze\Doze.csproj">
       <Project>{0113305f-df3e-47c4-ad51-7e005ac90b31}</Project>
       <Name>Doze</Name>
+    </ProjectReference>
+    <ProjectReference Include="F:\Transfer\Soft\holzed_old\holzed_old\JareemSys\Jareem.Network\Jareem.Network.csproj">
+      <Project>{eef9165c-2b32-40ba-b436-10a454cdada6}</Project>
+      <Name>Jareem.Network</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -12,6 +12,8 @@ namespace Doze.Nt.Server.Database
     public class DatabaseContext : DbContext
     {
         private DbSet<User> Users { get; set; }
+        private DbSet<UserSubscription> UsersSubscriptions { get; set; }
+        private DbSet<Product> Products { get; set; }
         private DatabaseSettingsPlaceholder DatabaseSettings { get; set; }
         private int ConcurrentIdentifier { get; set; }
         private List<IDatabaseAccessor> SupportedAccesors { get; set; }
@@ -23,7 +25,9 @@ namespace Doze.Nt.Server.Database
 
             SupportedAccesors = new List<IDatabaseAccessor>()
             {
-                new UserAccessor(Users, this)
+                new UserAccessor(Users, this),
+                new UserSubscriptionsAccessor(UsersSubscriptions, this),
+                new ProductAccessor(Products, this)
             };
         }
 
