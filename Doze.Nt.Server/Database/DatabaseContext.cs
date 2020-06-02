@@ -14,6 +14,9 @@ namespace Doze.Nt.Server.Database
         private DbSet<User> Users { get; set; }
         private DbSet<UserSubscription> UsersSubscriptions { get; set; }
         private DbSet<Product> Products { get; set; }
+        private DbSet<Article> Articles { get; set; }
+        private DbSet<ProductGuard> ProductGaurds { get; set; }
+        private DbSet<Update> Updates { get; set; }
         private DatabaseSettingsPlaceholder DatabaseSettings { get; set; }
         private int ConcurrentIdentifier { get; set; }
         private List<IDatabaseAccessor> SupportedAccesors { get; set; }
@@ -27,7 +30,10 @@ namespace Doze.Nt.Server.Database
             {
                 new UserAccessor(Users, this),
                 new UserSubscriptionsAccessor(UsersSubscriptions, this),
-                new ProductAccessor(Products, this)
+                new ProductAccessor(Products, this),
+                new NewsAccessor(Articles, this),
+                new ProductGuardAccessor(ProductGaurds, this),
+                new UpdateAccessor(Updates, this)
             };
         }
 

@@ -47,7 +47,7 @@
       <HintPath>..\..\..\..\Downloads\Guna.UI2.dll</HintPath>
     </Reference>
     <Reference Include="Jareem.Support">
-      <HintPath>F:\Transfer\Soft\holzed_old\holzed_old\JareemSys\Jareem.Network\bin\Release\netstandard2.0\Jareem.Support.dll</HintPath>
+      <HintPath>..\..\..\..\Desktop\JareemSys\Jareem.Support\bin\Debug\netstandard2.0\Jareem.Support.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
@@ -170,7 +170,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationContext.cs" />
+    <Compile Include="Database\Accessors\NewsAccessor.cs" />
     <Compile Include="Database\Accessors\ProductAccessor.cs" />
+    <Compile Include="Database\Accessors\ProductGuardAccessor.cs" />
+    <Compile Include="Database\Accessors\UpdateAccessor.cs" />
     <Compile Include="Database\Accessors\UserAccessor.cs" />
     <Compile Include="Database\Accessors\UserSubscriptionsAccessor.cs" />
     <Compile Include="Database\BaseAccessor.cs" />
@@ -181,7 +184,10 @@
     <Compile Include="Database\DatabaseObject.cs" />
     <Compile Include="Database\BaseModel.cs" />
     <Compile Include="Database\IDatabaseAccessor.cs" />
+    <Compile Include="Database\Models\Article.cs" />
     <Compile Include="Database\Models\Product.cs" />
+    <Compile Include="Database\Models\ProductGuard.cs" />
+    <Compile Include="Database\Models\Update.cs" />
     <Compile Include="Database\Models\User.cs" />
     <Compile Include="Database\Models\UserSubscription.cs" />
     <Compile Include="Database\Settings\DatabaseSettingsPlaceholder.cs" />
@@ -194,7 +200,10 @@
     <Compile Include="Network\Components\ProcessorsInitializerComponent.cs" />
     <Compile Include="Network\NetworkObject.cs" />
     <Compile Include="Network\Processors\AuthenticateProcessor.cs" />
+    <Compile Include="Network\Processors\ClientUpdateProcessor.cs" />
     <Compile Include="Network\Processors\GetSubscriptionsProcessor.cs" />
+    <Compile Include="Network\Processors\GuardProcessor.cs" />
+    <Compile Include="Network\Processors\NewsUpdateProcessor.cs" />
     <Compile Include="Network\Processors\SpliceProcessor.cs" />
     <Compile Include="Network\Settings\NetworkSettingsPlaceholder.cs" />
     <Compile Include="Plugins\Contracts\IDozePluginInterface.cs" />
@@ -287,13 +296,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Desktop\JareemSys\Jareem.Network\Jareem.Network.csproj">
+      <Project>{924ab343-bceb-41a4-8d5c-0260d33996b1}</Project>
+      <Name>Jareem.Network</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Doze\Doze.csproj">
       <Project>{0113305f-df3e-47c4-ad51-7e005ac90b31}</Project>
       <Name>Doze</Name>
-    </ProjectReference>
-    <ProjectReference Include="F:\Transfer\Soft\holzed_old\holzed_old\JareemSys\Jareem.Network\Jareem.Network.csproj">
-      <Project>{eef9165c-2b32-40ba-b436-10a454cdada6}</Project>
-      <Name>Jareem.Network</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

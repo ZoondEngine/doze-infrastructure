@@ -16,6 +16,7 @@ namespace Doze.Nt.Server.Network.Processors
         CannotCreateDatabaseContext = 802,
         CannotGetProductsAccessor = 803,
         CannotGetProductFromAccessor = 804,
+        CannotGetUserAccessor = 805,
     }
 
     class GetSubscriptionsProcessor : IObserver<BaseData>
@@ -52,37 +53,52 @@ namespace Doze.Nt.Server.Network.Processors
                                 var searchResult = accessor.Where((x) => x.UserId == packet.UserIdentifier).ToList();
                                 if(searchResult.Count > 0)
                                 {
-                                    foreach(var item in searchResult)
+                                    var userAccessor = ctx.GetAccesorOfType<UserAccessor>();
+                                    if (userAccessor != null)
                                     {
-                                        if(item.IsActive & !item.IsLocked)
+                                        var user = userAccessor.SelectOne((x) => x.Id == packet.UserIdentifier);
+                                        if (user != null)
                                         {
-                                            if(item.ExpiredAt > DateTime.Now)
+                                            foreach (var item in searchResult)
                                             {
-                                                var productAccessor = ctx.GetAccesorOfType<ProductAccessor>();
-                                                if(productAccessor != null)
+                                                if (item.IsActive & !item.IsLocked)
                                                 {
-                                                    var product = productAccessor.SelectOne((x) => x.Id == item.ProductId);
-                                                    if(product != null)
+                                                    if (item.ExpiredAt > DateTime.Now)
                                                     {
-                                                        availableSubscriptions.Add(new Subscription(product.Title, product.Status, product.IsAvailable, item.BoughtAt, item.ExpiredAt));
-                                                    }
-                                                    else
-                                                    {
-                                                        result = false;
-                                                        message = $"Error: '{GetSubscriptionsProcessorCode.CannotGetProductFromAccessor}'";
+                                                        var productAccessor = ctx.GetAccesorOfType<ProductAccessor>();
+                                                        if (productAccessor != null)
+                                                        {
+                                                            var product = productAccessor.SelectOne((x) => x.Id == item.ProductId);
+                                                            if (product != null)
+                                                            {
+                                                                availableSubscriptions.Add(new Subscription(product.Id, product.Title, product.Status, product.IsAvailable, item.BoughtAt, item.ExpiredAt));
 
-                                                        break;
-                                                    }
-                                                }
-                                                else
-                                                {
-                                                    result = false;
-                                                    message = $"Error: '{GetSubscriptionsProcessorCode.CannotGetProductsAccessor}'";
+                                                                result = true;
+                                                            }
+                                                            else
+                                                            {
+                                                                result = false;
+                                                                message = $"Error: '{GetSubscriptionsProcessorCode.CannotGetProductFromAccessor}'";
 
-                                                    break;
+                                                                break;
+                                                            }
+                                                        }
+                                                        else
+                                                        {
+                                                            result = false;
+                                                            message = $"Error: '{GetSubscriptionsProcessorCode.CannotGetProductsAccessor}'";
+
+                                                            break;
+                                                        }
+                                                    }
                                                 }
                                             }
                                         }
+                                    }
+                                    else
+                                    {
+                                        result = false;
+                                        message = $"Error: '{GetSubscriptionsProcessorCode.CannotGetUserAccessor}'";
                                     }
                                 }
                                 else

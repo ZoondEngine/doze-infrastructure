@@ -13,7 +13,7 @@ namespace Doze.Nt.Server.Network.Components
         private NetworkObject Parent;
         private bool Initialized;
 
-        private List<Action<TcpServer>> _modules = new List<Action<TcpServer>>()
+        private List<Action<TcpServer>> Processors = new List<Action<TcpServer>>()
         {
             (service) => service.Subscribe<TcpConnectionProvider, BaseData>(new SpliceProcessor()),
             (service) => service.Subscribe<TcpReceivingProvider, BaseData>(new AuthenticateProcessor()),
@@ -34,12 +34,12 @@ namespace Doze.Nt.Server.Network.Components
                     var service = Parent.GetService();
                     if(service != null)
                     {
-                        foreach (var module in _modules)
+                        foreach (var module in Processors)
                         {
                             module(service);
                         }
 
-                        Parent.GetLog().WriteLine($"Registered '{_modules.Count}' network processors!", Log.LogLevel.Info);
+                        Parent.GetLog().ImmediateWriteAll($"Registered '{Processors.Count}' network processors!", Journal.Contracts.JournalingLevel.Trace);
                         Initialized = true;
                     }
                 }
@@ -47,11 +47,11 @@ namespace Doze.Nt.Server.Network.Components
         }
 
         public int GetProcessorsCount()
-            => _modules.Count;
+            => Processors.Count;
 
         public void AddProcessor(Action<TcpServer> processor)
         {
-            _modules.Add(processor);
+            Processors.Add(processor);
             processor(Parent.GetService());
         }
     }

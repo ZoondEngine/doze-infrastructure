@@ -37,7 +37,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ConsoleTables, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ConsoleTables.2.3.0\lib\net40\ConsoleTables.dll</HintPath>
+      <HintPath>..\packages\ConsoleTables.2.4.1\lib\net40\ConsoleTables.dll</HintPath>
     </Reference>
     <Reference Include="Guna.UI2">
       <HintPath>..\..\..\..\Downloads\Guna.UI2.dll</HintPath>
@@ -50,12 +50,6 @@
     </Reference>
     <Reference Include="InTheHand.Net.Personal, Version=3.5.605.0, Culture=neutral, PublicKeyToken=ea38caa273134499, processorArchitecture=MSIL">
       <HintPath>..\packages\32feet.NET.3.5.0.0\lib\net\InTheHand.Net.Personal.dll</HintPath>
-    </Reference>
-    <Reference Include="Jareem.Network">
-      <HintPath>F:\Transfer\Soft\holzed_old\holzed_old\JareemSys\Jareem.Network\bin\Release\netstandard2.0\Jareem.Network.dll</HintPath>
-    </Reference>
-    <Reference Include="Jareem.Support">
-      <HintPath>F:\Transfer\Soft\holzed_old\holzed_old\JareemSys\Jareem.Network\bin\Release\netstandard2.0\Jareem.Support.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Network, Version=6.1.4.20, Culture=neutral, processorArchitecture=MSIL">
@@ -141,6 +135,9 @@
     <Compile Include="Network\Components\ProcessorsInitializerComponent.cs" />
     <Compile Include="Network\NetworkClientObject.cs" />
     <Compile Include="Network\Processors\SpliceProcessor.cs" />
+    <Compile Include="ProductSubview\ArticleMetaLoader.cs" />
+    <Compile Include="ProductSubview\ArticleView.cs" />
+    <Compile Include="ProductSubview\ProductContext.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Subscriptions\Components\TimeControllerComponent.cs" />
@@ -198,6 +195,14 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Desktop\JareemSys\Jareem.Network\Jareem.Network.csproj">
+      <Project>{924ab343-bceb-41a4-8d5c-0260d33996b1}</Project>
+      <Name>Jareem.Network</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Desktop\JareemSys\Jareem.Support\Jareem.Support.csproj">
+      <Project>{c2fce3d0-594f-4755-b990-329cac30cb14}</Project>
+      <Name>Jareem.Support</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Doze\Doze.csproj">
       <Project>{0113305f-df3e-47c4-ad51-7e005ac90b31}</Project>
       <Name>Doze</Name>

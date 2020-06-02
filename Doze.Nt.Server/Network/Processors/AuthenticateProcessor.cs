@@ -31,6 +31,8 @@ namespace Doze.Nt.Server.Network.Processors
             {
                 bool result = false;
                 string message = "";
+                long id = -1;
+                int balance = 0;
 
                 var authenticateRequest = rec.PacketContent.Convert<AuthenticateRequest>();
                 var db = DozeObject.FindObjectOfType<DatabaseObject>();
@@ -48,6 +50,12 @@ namespace Doze.Nt.Server.Network.Processors
                                 if (currentUserFromDb.HardwareId != "")
                                 {
                                     result = currentUserFromDb.HardwareId == authenticateRequest.Hardware;
+                                }
+
+                                if(result)
+                                {
+                                    id = currentUserFromDb.Id;
+                                    balance = currentUserFromDb.Balance;
                                 }
                             }
                             else
@@ -69,7 +77,14 @@ namespace Doze.Nt.Server.Network.Processors
                     }
                 }
 
-                network.GetService().Send(new AuthenticateResponse() { Result = result, Message = message }, rec.Connection);
+                network.GetService().Send(
+                    new AuthenticateResponse() 
+                    { 
+                        Result = result, 
+                        Message = message, 
+                        UserIdentifier = id, 
+                        Balance = balance 
+                    }, rec.Connection);
             }
         }
     }
