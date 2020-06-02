@@ -1,5 +1,4 @@
-﻿using Doze.Nt.Server.Log;
-using Doze.Nt.Server.Terminal.Interface;
+﻿using Doze.Nt.Server.Terminal.Interface;
 using Doze.Nt.Server.Visual;
 using Doze.Nt.Server.Visual.Controls;
 using System;

@@ -1,6 +1,6 @@
-﻿using Doze.Nt.Server.Database;
+﻿using Doze.Journal;
+using Doze.Nt.Server.Database;
 using Doze.Nt.Server.External.Settings;
-using Doze.Nt.Server.Log;
 using Doze.Nt.Server.Network;
 using Doze.Nt.Server.Terminal;
 using Doze.Nt.Windows;
@@ -13,7 +13,7 @@ namespace Doze.Nt.Server
     public class ApplicationContext : DozeObject
     {
         private WindowsObject VOM { get; set; }
-        private BaseLog Log { get; set; }
+        private JournalObject Journal { get; set; }
         private DatabaseObject Database { get; set; }
         private TerminalObject Terminal { get; set; }
         private ExternalSettingsObject ExternalSettings { get; set; }
@@ -37,7 +37,9 @@ namespace Doze.Nt.Server
             ExternalSettings.Load();
 
             VOM = Create<WindowsObject>();
-            Log = Create<BaseLog>();
+            Journal = Create<JournalObject>();
+            Journal.Run(false);
+
             Terminal = Create<TerminalObject>();
             Database = Create<DatabaseObject>();
             Network = Create<NetworkObject>();
@@ -63,8 +65,8 @@ namespace Doze.Nt.Server
         public WindowsObject GetVisualManager()
             => VOM;
 
-        public BaseLog GetLog()
-            => Log;
+        public JournalObject GetJournal()
+            => Journal;
 
         public TerminalObject GetTerminal()
             => Terminal;

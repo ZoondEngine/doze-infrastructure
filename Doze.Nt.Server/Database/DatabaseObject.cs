@@ -1,30 +1,31 @@
-﻿using Doze.Nt.Server.Database.Components;
+﻿using Doze.Journal;
+using Doze.Nt.Server.Database.Components;
 using Doze.Nt.Server.Database.Settings;
 using Doze.Nt.Server.External.Settings;
-using Doze.Nt.Server.Log;
+using Doze.Nt.Server.Terminal.JournalComponent;
 
 namespace Doze.Nt.Server.Database
 {
     public class DatabaseObject : DozeObject
     {
-        private BaseLog Log { get; set; }
+        private JournalObject Log { get; set; }
         private DatabaseSettingsPlaceholder Settings { get; set; }
 
         public void Init()
         {
-            Log = FindObjectOfType<BaseLog>();
+            Log = FindObjectOfType<JournalObject>();
 
             var externalSettingsObject = FindObjectOfType<ExternalSettingsObject>();
             if (externalSettingsObject == null)
             {
-                Log.WriteLine($"Can't run server because external settings object not available now!", LogLevel.Critical);
+                Log.ImmediateWriteToProvider<TerminalJournalProvider>("Can't run server because external settings object not available now!", Journal.Contracts.JournalingLevel.Critical);
                 return;
             }
 
             Settings = externalSettingsObject.GetObjectPlaceholder("external-settings:database").As<DatabaseSettingsPlaceholder>();
             if (Settings == null)
             {
-                Log.WriteLine($"Can't initialize server variables because not available database settings placeholder", LogLevel.Critical);
+                Log.ImmediateWriteToProvider<TerminalJournalProvider>($"Can't initialize server variables because not available database settings placeholder", Journal.Contracts.JournalingLevel.Critical);
                 return;
             }
 
@@ -44,7 +45,7 @@ namespace Doze.Nt.Server.Database
 
         public DatabaseSettingsPlaceholder GetSettings()
             => Settings;
-        public BaseLog GetLog()
+        public JournalObject GetLog()
             => Log;
     }
 }
