@@ -1,4 +1,5 @@
 ﻿using Doze.Nt.Client.Hardware;
+using Doze.Nt.Client.LoginContextData;
 using Doze.Nt.Client.Network;
 using Doze.Nt.Windows;
 using Jareem.Network.Packets;
@@ -31,6 +32,7 @@ namespace Doze.Nt.Client
     public class LoginContext : DozeObject
     {
         private Login LoginForm { get; set; }
+        private User AuthorizedUser { get; set; }
 
         public LoginContext()
         {
@@ -51,6 +53,10 @@ namespace Doze.Nt.Client
 
             return false;
         }
+
+        public User GetUser()
+            => AuthorizedUser ?? new User(0L, null, null);
+
         public async Task<bool> ConnectAsync()
             => await Task.Run(() => Connect());
 

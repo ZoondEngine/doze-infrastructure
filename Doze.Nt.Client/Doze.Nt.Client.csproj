@@ -132,6 +132,7 @@
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginContext.cs" />
+    <Compile Include="LoginContextData\User.cs" />
     <Compile Include="Network\Components\ProcessorsInitializerComponent.cs" />
     <Compile Include="Network\NetworkClientObject.cs" />
     <Compile Include="Network\Processors\SpliceProcessor.cs" />
